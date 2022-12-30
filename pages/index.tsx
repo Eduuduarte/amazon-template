@@ -11,9 +11,11 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      {/* Feed */}
+      <main className='max-w-screen-2xl'>
+        {/* Banner */}
 
-      {/* Footer */}
+        {/* ProductFeed */}
+      </main>
     </>
   )
 }
