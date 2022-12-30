@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { MagnifyingGlassIcon, ShoppingCartIcon } from '@heroicons/react/24/outline'
 
 const Header = () => {
   return (
@@ -20,7 +20,23 @@ const Header = () => {
             <div className='hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500'>
                 <input className='p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4' type="text" />
                 <MagnifyingGlassIcon className='h-12 p-4'/>
+            </div>
+            {/* Right */}
+            <div className='text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap'>
+                <div className='link'>
+                    <p>Hello Eduardo Duarte</p>
+                    <p className='font-extrabold md:text-sm'>Account & lists</p>
+                </div>
 
+                <div className='link'>
+                    <p>Returns</p>
+                    <p className='font-extrabold md:text-sm'>& Orders</p>
+                </div>
+
+                <div className=' relative link flex items-center'>
+                    <ShoppingCartIcon className='h-10'/>
+                    <p className='hidden md:inline font-extrabold md:text-sm mt-2'>Basket</p>
+                </div>
             </div>
         </div>
 
