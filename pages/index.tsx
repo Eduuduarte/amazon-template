@@ -4,7 +4,7 @@ import Banner from '../components/Banner'
 import Header from '../components/Header'
 import ProductFeed from '../components/ProductFeed'
 import styles from '../styles/Home.module.css'
-import { Product } from '../types/Product'
+import { ProductType } from '../types/Product'
 
 export default function Home(data: Props) {
   return (
@@ -30,7 +30,7 @@ export default function Home(data: Props) {
 }
 
 type Props = {
-  products: Product[];
+  products: ProductType[];
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {

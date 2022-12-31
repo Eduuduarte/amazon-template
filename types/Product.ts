@@ -8,12 +8,12 @@
 //   "rate": 3.9,
 //   "count": 120
 
-export type Product = {
+export type ProductType = {
     id: number;
     title: string;
     price: number;
     description: string;
     category: string;
     image: string;
-    reting: {rate: number, count: number}
+    rating: {rate: number, count: number}
 }

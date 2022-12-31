@@ -1,18 +1,22 @@
 import React from 'react';
-import { Product } from '../types/Product';
+import { ProductType } from '../types/Product';
+import Product from './Product';
 
 type Props = {
-    products: Product[];
+    products: ProductType[];
 }
 
 const ProductFeed = ({products}: Props) => {
   return (
-    <div>
+    <div className='grid grid-flow-row-dense md:grid-cols-2 lg:grid-col-3 xl:grid-cols-4'>
       {products.map((product) => (
-        <p key={product.id}>{product.title}</p>
+        <Product
+          key={product.id}
+          product={product}
+        />
       ))}
     </div>
   )
 }
 
-export default ProductFeed
+export default ProductFeed;
