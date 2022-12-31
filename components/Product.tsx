@@ -8,11 +8,12 @@ type Props = {
 }
 
 const Product = ({ product }: Props) => {
-    const [rating] = useState(
+    const [rating, setRating] = useState(
         Math.round(product.rating.rate)
     );
 
-    const [hasPrime] = useState(Math.random() < 0.5)
+    const [hasPrime, setHasPrime] = useState<number>(Math.random());
+
     return (
         <div className='relative flex flex-col m-5 bg-white z-30 p-10'>
             <p className='absolute top-2 right-2 text-xs italic text-gray-400'>{product.category}</p>
@@ -29,15 +30,14 @@ const Product = ({ product }: Props) => {
             <p className='text-xs my-2 line-clamp-2'>{product.description}</p>
             <div className='mb-5'>{product.price}</div>
 
-            {hasPrime && (
-                <div className='flex items-center space-x-2 -mt-5'>
-                    <img className='w-12' src="https://links.papareact.com/fdw" alt="" />
-                    <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
-                </div>
-            )}
+
+            <div className='flex items-center space-x-2 -mt-5'>
+                <img className='w-12' src="https://links.papareact.com/fdw" alt="" />
+                <div className='text-xs text-gray-500'>FREE Next-day Delivery</div>
+            </div>
+
 
             <button className='mt-auto button'>Add to Basket</button>
-            
         </div>
     )
 }
