@@ -2,17 +2,25 @@ import React, { useState } from 'react'
 import { ProductType } from '../types/Product';
 import Image from 'next/image';
 import { StarIcon } from '@heroicons/react/24/outline';
+import { useDispatch } from 'react-redux';
+import { addToBasket } from '../slices/basketSlice';
 
 type Props = {
     product: ProductType;
 }
 
 const Product = ({ product }: Props) => {
+    const dispatch = useDispatch()
+
     const [rating, setRating] = useState(
         Math.round(product.rating.rate)
     );
 
     const [hasPrime, setHasPrime] = useState<number>(Math.random());
+
+    const addItemToBasket = () => {
+        dispatch(addToBasket(product))
+    }
 
     return (
         <div className='relative flex flex-col m-5 bg-white z-30 p-10'>
@@ -37,7 +45,7 @@ const Product = ({ product }: Props) => {
             </div>
 
 
-            <button className='mt-auto button'>Add to Basket</button>
+            <button onClick={addItemToBasket} className='mt-auto button'>Add to Basket</button>
         </div>
     )
 }
