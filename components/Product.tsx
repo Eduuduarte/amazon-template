@@ -38,11 +38,10 @@ const Product = ({ product }: Props) => {
             <p className='text-xs my-2 line-clamp-2'>{product.description}</p>
             <div className='mb-5'>{product.price}</div>
 
-
             <div className='flex items-center space-x-2 -mt-5'>
-                <img className='w-12' src="https://links.papareact.com/fdw" alt="" />
-                <div className='text-xs text-gray-500'>FREE Next-day Delivery</div>
-            </div>
+                    <img className='w-12' src="https://links.papareact.com/fdw" alt="" />
+                    <div className='text-xs text-gray-500'>FREE Next-day Delivery</div>
+                </div>
 
 
             <button onClick={addItemToBasket} className='mt-auto button'>Add to Basket</button>

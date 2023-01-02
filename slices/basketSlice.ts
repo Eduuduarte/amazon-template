@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CaseReducer, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductType } from '../types/Product';
 
 const initialState:ProductType[] = []
@@ -7,9 +7,9 @@ export const basketSlice = createSlice({
     name: "basket",
     initialState,
     reducers: {
-        // Actions
-        addToBasket: (state, action: PayloadAction<ProductType>) => [...state, action.payload],
-        removeFromBasket: (state, action) => {}
+        // Action
+        addToBasket: (state, action: PayloadAction<ProductType>) =>[...state, action.payload],
+        removeFromBasket: (state, action: PayloadAction<ProductType[]>) => state = action.payload
     },
 });
 
