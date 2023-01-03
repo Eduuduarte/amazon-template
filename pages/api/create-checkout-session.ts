@@ -3,7 +3,6 @@ import { ProductType } from "../../types/Product";
 import Stripe from "stripe";
 import { useFormater } from "../../libs/useFormater";
 
-// const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY as string);
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

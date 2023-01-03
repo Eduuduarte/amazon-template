@@ -1,4 +1,3 @@
-import { loadStripe } from '@stripe/stripe-js';
 import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -10,8 +9,6 @@ import { selectItems } from '../slices/basketSlice';
 import { ProductType } from '../types/Product';
 import axios from 'axios';
 import getStripe from '../libs/getStripe';
-
-// const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY as string);
 
 const checkout = () => {
     const items: ProductType[] = useSelector(selectItems);
