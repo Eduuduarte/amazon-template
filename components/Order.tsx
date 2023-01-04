@@ -1,5 +1,6 @@
 import moment from 'moment'
 import React from 'react'
+import { useFormater } from '../libs/useFormater'
 import { OrdersType } from '../types/Orders'
 
 type Props = {
@@ -7,6 +8,7 @@ type Props = {
 }
 
 const Order = ({ order }: Props) => {
+    const formatter = useFormater();
     return (
         <div className='relative border rounded-md'>
             <div className='flex items-center space-x-10 p-5 bg-gray-100 text-sm text-gray-600'>
@@ -17,7 +19,7 @@ const Order = ({ order }: Props) => {
 
                 <div>
                     <p className='text-xs font-bold'>Total</p>
-                    <p>{order.amount} - Next Day Delivery{" "}<span>{order.amountShipping}</span></p>
+                    <p>R$ {formatter.formtPrice(order.amount)} - Next Day Delivery{" "}<span>{order.amountShipping}</span></p>
                 </div>
 
                 <p className='text-sm whitespace-nowrap sm:text-xl self-end flex-1 text-right text-blue-500'>

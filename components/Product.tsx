@@ -4,13 +4,15 @@ import Image from 'next/image';
 import { StarIcon } from '@heroicons/react/24/outline';
 import { useDispatch } from 'react-redux';
 import { addToBasket } from '../slices/basketSlice';
+import { useFormater } from '../libs/useFormater';
 
 type Props = {
     product: ProductType;
 }
 
 const Product = ({ product }: Props) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const formatter = useFormater();
 
     const [rating, setRating] = useState(
         Math.round(product.rating.rate)
@@ -28,7 +30,7 @@ const Product = ({ product }: Props) => {
 
             <Image src={product.image} height={200} width={200} alt="" />
 
-            <h4 className='my-3'>{product.title}</h4>
+            <h4 className='my-3' >{product.title}</h4>
             <div className='flex'>
                 {Array(rating).fill(1).map((_, i) => (
                     <StarIcon key={i} className='h-5 text-yellow-500' />
@@ -36,7 +38,7 @@ const Product = ({ product }: Props) => {
             </div>
 
             <p className='text-xs my-2 line-clamp-2'>{product.description}</p>
-            <div className='mb-5'>{product.price}</div>
+            <div className='mb-5'>R$ {formatter.formtPrice(product.price)}</div>
 
             <div className='flex items-center space-x-2 -mt-5'>
                     <img className='w-12' src="https://links.papareact.com/fdw" alt="" />

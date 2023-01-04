@@ -9,11 +9,13 @@ import { selectItems } from '../slices/basketSlice';
 import { ProductType } from '../types/Product';
 import axios from 'axios';
 import getStripe from '../libs/getStripe';
+import { useFormater } from '../libs/useFormater';
 
 const checkout = () => {
     const items: ProductType[] = useSelector(selectItems);
     const total = items.reduce((total, item) => total + item.price, 0);
     const { data: session } = useSession();
+    const formatter = useFormater();
 
     const createCheckoutSession = async () => {
         const stripe = await getStripe();
@@ -66,7 +68,7 @@ const checkout = () => {
                     {items.length > 0 &&
                         <>
                             <h2 className='whitespace-nowrap'>Subtotal ({items.length} items):
-                                <span className='font-bold'>{total}</span>
+                                <span className='font-bold'>R$ {formatter.formtPrice(total)}</span>
                             </h2>
 
                             <button

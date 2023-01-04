@@ -7,11 +7,6 @@ const nextConfig = {
   env: {
     stripe_public_key: process.env.STRIPE_PUBLIC_KEY
   },
-  resolve: {
-    fallback: {
-        "fs": false
-    },
-}
 }
 
 module.exports = nextConfig
